@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Retail Remedy — The remedy for high retail prices | Compare Prices, Clip Free Coupons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="topbar"><div class="wrap topbar-in">
+  <a href="#top" style="font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;color:var(--ink);letter-spacing:-.02em;white-space:nowrap;">Retail <span style="background:var(--yellow);color:#0b100f;padding:1px 7px;border-radius:6px;">Remedy</span></a>
+  <nav class="navlinks" aria-label="Main">
+    <a href="#compare">Compare Prices</a><a href="#parts">Parts &amp; Accessories</a><a href="#guides" data-open-guides>How-To Guides &amp; Instructions</a><a href="#coupons">Coupons</a><a href="#stores">Stores</a><a href="#brands">For Brands &amp; Sponsors</a><a href="#activity">Activity &amp; Stats</a><a href="#how">How It Works</a>
+  </nav>
+  <button class="wallet-btn" id="walletOpen">🎟️ My Coupon Wallet <span class="wallet-count" id="walletCount">0</span></button>
+</div></div>
+
+<main id="view-listings">
+<header class="hero" id="top" style="padding:20px 0 18px;"><div class="wrap">
+    <div>
+      <div style="font-weight:900;letter-spacing:.1em;font-size:11px;margin-bottom:10px;color:var(--yellow);">RETAIL REMEDY • FREE TO USE • NO MEMBERSHIP • NO SIGN-UP TO CLIP</div>
+      <form class="searchbox" id="heroSearchForm">
+        <input id="heroSearch" type="search" placeholder="Search anything: earbuds, USB-C cable, vacuum filter, printer ink, phone case…" aria-label="Search for a product, part or accessory" />
+        <button type="submit">Compare Prices →</button>
+      </form>
+      <div class="chips" aria-label="Popular searches">
+        <span style="font-weight:700;font-size:13px;align-self:center;">Popular:</span>
+        <button class="chip" data-search="paper towels">Paper Towels</button>
+        <button class="chip" data-search="earbuds">Wireless Earbuds</button>
+        <button class="chip" data-search="usb-c cable">USB-C Cable</button>
+        <button class="chip" data-search="vacuum filter">Vacuum Filter</button>
+        <button class="chip" data-search="printer ink">Printer Ink</button>
+        <button class="chip" data-search="phone case">Phone Case</button>
+        <button class="chip" data-search="air fryer basket">Air Fryer Basket</button>
+        <button class="chip" data-search="fridge filter">Fridge Filter</button>
+      </div>
+    </div>
+  </div></header>
+
+<section class="section alt" id="compare"><div class="wrap">
+  <div class="kicker">Price comparison — products, parts &amp; accessories</div>
+  <h2 id="compareTitle">Paper Towels — 12 Pack</h2>
+  <p class="sub">Prices sorted lowest to highest. Coupon price is what you pay after clipping. Includes whole products <em>and</em> parts &amp; accessories — items marked <span class="part-badge">Part / Accessory</span> are replacements or add-ons for a device you already own. Sample prices for launch — swap in live affiliate feeds once your network accounts are approved.</p>
+
+  <div class="compare-layout">
+    <div class="product-list" id="productList" role="listbox" aria-label="Products"></div>
+    <div class="offers">
+      <div class="offers-head">
+        <div><h3 id="offerProductName">—</h3><div class="store-meta" id="offerProductMeta">—</div></div>
+        <div class="best-banner" id="bestBanner">Best deal saves you $—</div>
+      </div>
+      <div id="offerRows"></div>
+      <div class="guide-panel">
+        <button class="guide-toggle" id="guideToggle" aria-expanded="false">📖 How to install / use this</button>
+        <div class="guide-body" id="guideBody">
+          <h4 id="guideTitle">—</h4>
+          <p class="guide-sub" id="guideSub">—</p>
+          <ol class="howto" id="guideSteps"></ol>
+        </div>
+      </div>
+      <div style="padding:16px 22px;background:var(--bg2);font-size:13px;color:var(--muted);">How to use: Tap <b>Get Coupon</b> on the store you want, copy the code that appears, then paste it at that store's checkout. Prices change — check the store for the final total including tax &amp; shipping.</div>
+    </div>
+  </div>
+
+  <div class="sample-note"><strong>Launch note for Michael:</strong> The products, prices and codes below are clearly-labeled samples so the site works on day one. Replace each one with an approved affiliate link/code from Awin, CJ, Rakuten, Impact or Amazon Associates (see <a href="#brands">For Brands</a>) before promoting it as a live deal — don't publish a code as “verified” until you've tested it at checkout.</div>
+</div></section>
+
+<section class="hero" aria-label="About Retail Remedy" style="padding:26px 0 0;"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <h1>Same cart. <em>Lower price.</em></h1>
+      <p class="lede"><strong>The remedy for high retail prices.</strong> Now including parts &amp; misc bits for your devices — not just the device itself. Search a product <em>or</em> the part that keeps it running: a charger, filter, basket, cable, case, ink cartridge or replacement tip, compare sample prices across stores, then clip a free coupon to use at checkout.</p>
+      <p style="font-size:13px;color:#c9d1d6;margin:0 0 18px;max-width:560px;">💡 <strong>Tip:</strong> Search by device + part — try “coffee maker filter”, “laptop charger”, “watch band” or “earbud tips” — or browse by device below.</p>
+    </div>
+    <div class="hero-img"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="hero.webp.b64" data-mime="image/webp" alt="Smiling shopper holding colorful shopping bags" /></div>
+  </div>
+  <div class="stats">
+    <div><b>18 sample products &amp; parts</b><span>6 products + 12 parts &amp; accessories</span></div>
+    <div><b>18 sample coupons</b><span>Ready to clip below for testing</span></div>
+    <div><b>Up to 44% off</b><span>Best sample saving in this demo</span></div>
+    <div><b>$0</b><span>Cost to search &amp; clip</span></div>
+  </div>
+</div></section>
+
+
+
+<section class="section" id="guides-link" style="padding-top:0;padding-bottom:8px;"><div class="wrap">
+  <div class="guides-banner">
+    <div><h3>How-To Guides &amp; Instructions</h3><p>Step-by-step instructions now live on their own page — install guides, fitment checks, the Mercedes radio walk-through, model airplane build, and coupon-at-checkout help. Highlighted parts &amp; tools in the guides pop out their cheapest sample price.</p></div>
+    <a href="#guides" data-open-guides>Open How-To Guides &amp; Instructions →</a>
+  </div>
+</div></section>
+
+
+<section class="section" id="how"><div class="wrap">
+  <div class="kicker">How Retail Remedy works</div>
+  <h2>Search. Compare. Clip. Save.</h2>
+  <p class="sub">Shoppers will check prices if you make it effortless. Retail Remedy does that for groceries, tech, home goods, fashion — and for the parts &amp; misc bits that keep your devices running. Search once, see every store's price, and take the best one.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Search product or part</h3><p>Type the whole item — or just the part: “USB-C cable”, “vacuum filter”, “air fryer basket”. Add your device name (“coffee maker filter”) and we'll match compatible parts, not just the headline product.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Compare the real total</h3><p>See shelf price, coupon price, shipping / pickup, and savings side-by-side, sorted lowest first. For parts, check the compatibility note on each comparison before you buy.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Clip &amp; use at checkout</h3><p>Reveal the code, copy it, or save it to your Coupon Wallet. Paste it online or show it in store — every Retail Remedy coupon is free to clip and use.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="parts" style="padding-top:8px;"><div class="wrap">
+  <div class="kicker">Parts &amp; misc — new</div>
+  <h2>Find the part, not just the product</h2>
+  <p class="sub">Devices break, wear out, and need topping up. This finder covers the small stuff people actually search for after the big purchase: chargers &amp; cables, filters, baskets &amp; liners, cases &amp; screen protectors, ink, bands, tips and more. Tap a device to see its parts, or search above by part + device.</p>
+  <div class="device-grid" id="deviceGrid" aria-label="Browse parts by device"></div>
+  <div class="compat"><b>Compatibility first:</b> Every part comparison shows what it fits in the product notes (for example “Fits most 5-qt air fryers” or “USB-C PD 65W — laptops, tablets &amp; phones”). Always double-check your model number on the store page before checkout — sample compatibility notes here are guides, not guarantees.</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;" aria-label="Popular part searches">
+    <span style="font-weight:700;font-size:13px;align-self:center;">Popular parts:</span>
+    <button class="chip" data-search="screen protector" style="border-color:var(--line);">Screen Protector</button>
+    <button class="chip" data-search="laptop charger" style="border-color:var(--line);">Laptop Charger</button>
+    <button class="chip" data-search="coffee filter" style="border-color:var(--line);">Coffee Maker Filter</button>
+    <button class="chip" data-search="hvac filter" style="border-color:var(--line);">HVAC Filter</button>
+    <button class="chip" data-search="watch band" style="border-color:var(--line);">Smartwatch Band</button>
+    <button class="chip" data-search="earbud tips" style="border-color:var(--line);">Earbud Tips</button>
+  </div>
+</div></section>
+
+
+
+
+
+<section class="section" id="coupons"><div class="wrap">
+  <div class="kicker">Today's coupons</div>
+  <h2>Clip a coupon, use it at checkout</h2>
+  <p class="sub">Filter by category or store. Every card shows the offer, expiry, when it was last checked, and the fine print — just like a trustworthy coupon should.</p>
+  <div class="pills" id="catPills">
+    <button class="pill active" data-cat="all">All Coupons</button>
+    <button class="pill" data-cat="Groceries">Groceries &amp; Household</button>
+    <button class="pill" data-cat="Tech">Tech</button>
+    <button class="pill" data-cat="Fashion">Fashion</button>
+    <button class="pill" data-cat="Home">Home</button>
+    <button class="pill" data-cat="Beauty">Beauty &amp; Health</button>
+    <button class="pill" data-cat="Parts">🔧 Parts &amp; Accessories</button>
+  </div>
+  <div class="coupon-grid" id="couponGrid"></div>
+  <p id="couponEmpty" style="display:none;color:var(--muted);padding:20px 0;">No coupons in this category yet — try All Coupons.</p>
+</div></section>
+
+<section class="section alt" id="stores"><div class="wrap">
+  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="aisle.jpg.b64" data-mime="image/jpeg" alt="Shopping cart in a supermarket aisle" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:24px;" />
+  <div class="kicker">Browse by store</div>
+  <h2>Start with the store you already shop</h2>
+  <p class="sub">Tap a store to filter its coupons above.</p>
+  <div class="store-grid" id="storeGrid"></div>
+</div></section>
+
+<section class="section brands" id="brands"><div class="wrap">
+  <div class="kicker">For brands &amp; sponsors</div>
+  <h2 style="color:#fff;">How this site actually gets sponsors</h2>
+  <p class="sub">Direct brands rarely sponsor a brand-new site with no traffic yet. Real coupon sites start inside affiliate networks — the brands are already there, you apply, get approved tracking links and exclusive codes, and earn when shoppers buy. That's the day-one sponsor route built into this site.</p>
+
+  <div class="brand-grid">
+    <article class="brand-card"><h3>Awin — Start Here</h3><p>30,000+ brands across retail, fashion, tech and travel. ShareASale moved to Awin before it closed on Oct 6, 2025, so this is now the broadest starting network for a new coupon site.</p><a class="sponsor-link" data-sponsor="Awin" href="https://www.awin.com/gb/publishers/editorial-media-sites" target="_blank" rel="noopener">Join as a publisher on Awin →</a></article>
+    <article class="brand-card"><h3>CJ Affiliate</h3><p>Large retail, tech and travel advertisers. You apply to each advertiser separately, so a live site with real content, a privacy policy and a disclosure page materially improves approvals.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Apply at cj.com as a Publisher</span></article>
+    <article class="brand-card"><h3>Rakuten Advertising</h3><p>Premium retail brands and a long-running publisher network (formerly LinkShare). Best for fashion, department stores and established retailers.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Apply via Rakuten Advertising — Publishers</span></article>
+    <article class="brand-card"><h3>Impact.com</h3><p>Partnership platform behind programs for major retailers including Walmart. Walmart typically wants a live site with content and a visible privacy policy — thin or brand-new sites are often declined, so apply after launch content is up.</p><a class="sponsor-link" data-sponsor="Impact.com" href="https://impact.com/?ref=hellopartner.com" target="_blank" rel="noopener">Explore impact.com →</a></article>
+    <article class="brand-card"><h3>Amazon Associates</h3><p>Easiest to join, useful for product price checks — but don't make it your only source for a coupon-only site. You need 3 qualifying sales in the first 180 days to stay in, plus original content on a public site.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Join at affiliate-program.amazon.com</span></article>
+    <article class="brand-card"><h3>Direct Sponsors — After Traffic</h3><p>Once you have traffic, pitch brands directly for an exclusive code for your readers, a featured store page, and a newsletter slot. Use the pitch below — customize the name/email before sending.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Pitch template ↓</span></article>
+  </div>
+
+  <div class="perks">
+    <div class="perk"><b>Featured Store Page</b><p>A dedicated page for the sponsor's best prices and coupons, linked from search results for their products.</p></div>
+    <div class="perk"><b>Featured Deal Slot</b><p>Top placement in Today's Coupons and in the price-comparison list when the sponsor is the best — or a clearly labeled sponsored slot when it isn't.</p></div>
+    <div class="perk"><b>Newsletter Placement</b><p>A deal slot in the weekly deals email once the list launches — always labeled as sponsored.</p></div>
+  </div>
+
+  <div class="pitch-box">
+    <h3 style="font-size:20px;margin-bottom:8px;">Sponsor outreach pitch — copy &amp; customize</h3>
+    <p style="color:#5b636e;font-size:14px;margin:0 0 12px;">Replace the brackets, then send from your own email. Don't send until you've added your real contact name and email.</p>
+    <textarea id="pitchText">Subject: Exclusive coupon for [Brand] shoppers on Retail Remedy
+
+Hi [Name / Partnerships Team],
+
+I'm launching Retail Remedy — the remedy for high retail prices. It's a shopping price-comparison site: shoppers search an item, compare prices across stores, and clip a free coupon to use at checkout.
+
+I'm inviting [Brand] to be a launch sponsor. In return you'd get:
+• A featured store page with your best prices and offers
+• A featured deal slot in our Today's Coupons section
+• A placement in our weekly deals email as the list grows
+
+What I'm asking for to start:
+• Approval in your affiliate program (Awin / CJ / Impact / direct), or
+• An exclusive code for our readers (even 10–15% off helps shoppers choose you when prices are tied)
+
+Happy to share our launch and traffic plan and to label all sponsored placements clearly.
+
+Thanks for considering it,
+[Your Full Name]
+[Your Email] • [Site URL]</textarea>
+    <div class="btn-row">
+      <button class="btn primary" id="copyPitch">Copy Pitch</button>
+      <button class="btn" id="downloadPitch">Download Pitch (.txt)</button>
+      <a class="btn yellow" href="mailto:?subject=Exclusive%20coupon%20partnership%20with%20Retail%20Remedy&body=Hi%20Partnerships%20Team%2C%0A%0AI%27m%20launching%20Retail%20Remedy%20%E2%80%94%20the%20remedy%20for%20high%20retail%20prices.%20I%27d%20love%20to%20discuss%20an%20exclusive%20coupon%20for%20our%20readers.%0A%0AThanks!">Open in Email App</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="section alt" id="activity"><div class="wrap">
+  <div class="kicker">Data tracking — this session</div>
+  <h2>Activity &amp; Stats</h2>
+  <p class="sub">Everything done on this page in this tab is logged with a timestamp — searches, price comparisons (per store), coupon reveals &amp; copies, click-throughs to retailers and sponsors, how-to guide views, and price pop-outs opened from highlighted terms in the guides. Use it to see what's working, then export the log for your records or a spreadsheet / analytics tool later.</p>
+  <p style="color:var(--muted);font-size:14px;max-width:760px;margin-top:10px;">Privacy: we only record actions on this site and the search words you type here — no name, email, address, or device fingerprint is collected, and nothing is sent to a server from this page. The log lives only in this browser tab and clears when you close or refresh it, so export it if you want to keep it.</p>
+
+  <div class="activity-grid" aria-live="polite">
+    <div class="stat-card"><b id="statTotal">0</b><span>Total tracked events</span><small id="statSession">Session started —</small></div>
+    <div class="stat-card"><b id="statSearches">0</b><span>Product searches</span><small id="statTopSearch">No searches yet</small></div>
+    <div class="stat-card"><b id="statCompare">0</b><span>Price-comparison views</span><small id="statCompareStores">0 store rows viewed</small></div>
+    <div class="stat-card"><b id="statReveals">0</b><span>Coupon reveals</span><small id="statClips">0 clipped to wallet</small></div>
+    <div class="stat-card"><b id="statCopies">0</b><span>Coupon copies</span><small>Copy Code, wallet &amp; offer copies</small></div>
+    <div class="stat-card"><b id="statRetailerClicks">0</b><span>Retailer click-throughs</span><small>Get Coupon &amp; store picks</small></div>
+    <div class="stat-card"><b id="statSponsorClicks">0</b><span>Sponsor click-throughs</span><small>Awin, Impact &amp; sponsor pitch</small></div>
+    <div class="stat-card"><b id="statLastEvent">—</b><span>Last event</span><small id="statLastDetail">Nothing tracked yet — try a search above</small></div>
+  </div>
+
+  <div class="activity-cols">
+    <div class="panel">
+      <h3>By store — comparison views</h3>
+      <div id="byStoreList"><p style="color:var(--muted);font-size:14px;margin:0;">No comparison views yet.</p></div>
+      <h3 style="margin-top:22px;">By event type</h3>
+      <div id="byTypeList"><p style="color:var(--muted);font-size:14px;margin:0;">No events yet.</p></div>
+      <h3 style="margin-top:22px;">Event data — ready to export</h3>
+      <p style="color:var(--muted);font-size:13.5px;margin:0;">Each event is one structured record, so the export drops straight into a spreadsheet, database, or analytics import later. Also available in the browser as <code>window.ShopTracker</code>.</p>
+      <div class="schema-box">{
+  "id": "evt_…",
+  "timestamp": "2026-10-13T…Z",  // ISO 8601
+  "timestamp_ms": 179…,
+  "session_id": "sess_…",
+  "type": "search | compare_view |
+    compare_store_view | coupon_reveal |
+    coupon_copy | coupon_clip |
+    retailer_click | sponsor_click | …",
+  "query": "what you searched (if any)",
+  "product_id": "…", "product_name": "…",
+  "store": "…", "category": "…",
+  "coupon_code": "…",
+  "source": "hero_search | get_coupon | guide_toggle | …",
+  "detail": "human-readable summary"
+}</div>
+    </div>
+
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:6px;">
+        <h3 style="margin:0;">Recent activity</h3>
+        <label style="font-size:13px;font-weight:700;">Show: <select class="filter-select" id="eventFilter">
+          <option value="all">All event types</option>
+          <option value="search">Searches</option>
+          <option value="compare">Comparisons</option>
+          <option value="coupon">Coupons (reveal / copy / clip)</option>
+          <option value="click">Click-throughs (retailer / sponsor)</option>
+          <option value="guide">How-to instructions viewed</option>
+        </select></label>
+      </div>
+      <div class="event-feed" id="eventFeed"><p style="color:var(--muted);font-size:14px;">No activity yet in this session. Search for a product, compare prices, or clip a coupon and it will appear here with its timestamp.</p></div>
+      <div class="btn-row" style="margin-top:16px;">
+        <button class="btn primary" id="exportJson">⬇ Export JSON</button>
+        <button class="btn" id="exportCsv">⬇ Export CSV</button>
+        <button class="btn" id="copyJson">Copy JSON</button>
+        <button class="btn" id="clearLog">Clear Log (this tab)</button>
+      </div>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">Exports are generated on your device from the in-memory log — the file is the record. Clearing only clears this tab's log.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="footer-grid">
+    <div class="disclosure"><h3 style="margin-bottom:10px;">How we verify a coupon</h3><p style="color:var(--muted);margin:0;">We check the code at the store's checkout, note the date, and show any minimum spend or exclusions on the card. If a code stops working, we remove it. “Last checked” on each card is that date — sample cards in this launch version are marked SAMPLE until replaced with a tested, approved code.</p></div>
+    <div class="disclosure" id="disclosure"><h3 style="margin-bottom:10px;">Affiliate Disclosure</h3><p style="color:var(--muted);margin:0;">When you click a store link or use a coupon from this site, we may earn a commission from the store or its affiliate network at no extra cost to you. That commission helps keep search and coupons free. Sponsored placements are labeled. Prices and availability are set by the store and can change — the store's checkout total is final.</p></div>
+  </div>
+</div></section>
+
+
+</main>
+<main id="view-guides" class="view-hidden" hidden>
+<section class="section" id="guides" style="padding-top:28px;"><div class="wrap">
+  <div class="guides-topbar"><a class="back-link" href="#compare" data-back-to-listings>← Back to Search &amp; Listings</a><span style="font-size:13px;font-weight:700;color:var(--muted);">Separate page • Instructions only — search &amp; prices stay on the listings page</span></div>
+  <div class="kicker">How-to instructions</div>
+  <h2>Instructions for the job, not just the price</h2>
+  <p class="sub">Buying the part is only half the job. These step-by-step guides cover the searches shoppers actually bring us — using a coupon at checkout, checking a part really fits, and finishing the install or project at home. Every product and part on the listings page also carries its own short instructions: go back to the listings, pick an item, then tap <b>“How to install / use this”</b> on its comparison panel.</p>
+  <p class="sub" style="margin-top:10px;">🛒 <b>Shoppable steps:</b> words highlighted in the guides — parts, tools and materials like <span class="shop-term" data-term="dash-kit" role="button" tabindex="0">dash kit</span> — pop out their cheapest sample price, the store that has it, and its coupon. Tap one (or hover on desktop) while you read; tap ✕ or anywhere else to close it and keep reading.</p>
+  <div class="guide-grid">
+    <article class="guide-card">
+      <span class="guide-tag">Start here</span>
+      <h3>How to use a coupon at checkout</h3>
+      <p class="guide-sub">Works for every deal on this page — online, pickup, or in store.</p>
+      <ol class="howto">
+        <li><b>Clip or reveal the code first.</b><span>Tap “Get Coupon” on the store you want — the code is copied and saved to your Coupon Wallet.</span></li>
+        <li><b>Fill your cart at that store.</b><span>Check the coupon terms on the card for any minimum spend (for example “$25+ household”) before you check out.</span></li>
+        <li><b>Paste the code in the promo box.</b><span>Online, it's at checkout under “Promo / gift card”. In store, show the code from your wallet at the register.</span></li>
+        <li><b>Confirm the total dropped.</b><span>The discount should appear before you pay. If it doesn't, re-check the expiry date and exclusions — don't pay full price and hope.</span></li>
+      </ol>
+    </article>
+    <article class="guide-card">
+      <span class="guide-tag">Parts fitment</span>
+      <h3>How to make sure a part actually fits</h3>
+      <p class="guide-sub">The step that saves you from buying an expensive paperweight.</p>
+      <ol class="howto">
+        <li><b>Find your exact model number.</b><span>It's on a label on the device itself — inside a fridge or washer door, under a laptop, on the back of an appliance — not just the brand name.</span></li>
+        <li><b>Match the compatibility note.</b><span>Every part comparison here shows what it fits. Match model, size, and connector (for example USB-C 65W, or a 16x25x1 filter) — all three, not just one.</span></li>
+        <li><b>Beware the look-alike generation.</b><span>Similar names often mean different parts — a radio built for a W209 CLK does not fit a W208, even though both are “2003-era CLK”. When in doubt, search by chassis or generation, not just year.</span></li>
+        <li><b>Re-check on the store page.</b><span>Enter your model in the store's fit checker before paying, and keep the box until you've test-fitted the part.</span></li>
+      </ol>
+    </article>
+    <article class="guide-card">
+      <span class="guide-tag">Worked example</span>
+      <h3>How to replace the radio in a 2003 Mercedes-Benz CLK 430 (W208)</h3>
+      <p class="guide-sub">The parts search on the listings page, finished: head unit + install kit, about an hour with basic tools.</p>
+      <ol class="howto">
+        <li><b>Buy the install parts with the radio.</b><span>You need a single-DIN dash kit, a wiring-harness adapter, and an antenna adapter for the W208 — sold as bundles in the parts listings. Don't cut the factory harness.</span></li>
+        <li><b>Disconnect the battery first.</b><span>Negative terminal off before you touch any wiring — the radio circuit is live with the key out.</span></li>
+        <li><b>Release the factory radio.</b><span>Slide the Mercedes radio-removal keys into the slots on the factory unit until they click, then pull the unit straight out and unplug the connectors at the back.</span></li>
+        <li><b>Wire the new radio on the bench.</b><span>Match the harness adapter to the new radio's harness color-for-color (power, ground, four speaker pairs), crimp or solder each joint, then plug the adapter into the car — no factory wires cut.</span></li>
+        <li><b>Check for the fiber-optic catch.</b><span>Many W208s with the Bose system send audio over a fiber-optic (D2B) loop, so an aftermarket radio can't drive the factory amp directly. If yours has Bose, plan on a fiber-loop workaround or rewiring the speakers to the new head unit before you button up.</span></li>
+        <li><b>Test before you reassemble.</b><span>Reconnect the battery, power the radio on, and check every speaker, the antenna, and steering-wheel controls if fitted. Only then slide the unit into the dash kit until it locks.</span></li>
+      </ol>
+    </article>
+    <article class="guide-card">
+      <span class="guide-tag">Project guide</span>
+      <h3>How to build your first model airplane kit</h3>
+      <p class="guide-sub">Kit + the misc parts that finish it — the same split the search shows you.</p>
+      <ol class="howto">
+        <li><b>Pick the right first kit.</b><span>Start with a beginner balsa kit or an RC trainer kit (a high-wing Cub-style design is the forgiving classic). Save warbirds and big scale kits for build two.</span></li>
+        <li><b>Lay out every part before glue.</b><span>Check the parts list against the box, and for RC, gather the electronics the airframe doesn't include: brushless motor, ESC, servos, and propellers — sold as bundles in the parts results.</span></li>
+        <li><b>Build flat, in the plan's order.</b><span>Pin parts over the plan sheet, glue one section at a time, and let each joint cure fully before moving on. A warped wing built in a hurry never flies straight.</span></li>
+        <li><b>Cover, balance, then test.</b><span>Cover or paint, fit the electronics, and balance the plane at the center-of-gravity mark in the instructions. Do a range and control-direction check on the ground before the first flight.</span></li>
+      </ol>
+    </article>
+  </div>
+  <div class="compat" style="margin-top:18px;"><b>Packing an overnight backpack?</b> Same idea applies in reverse: start with the “big three” (pack in the 40–65L range, shelter, sleep system), lay everything out before it goes in, put heavy items close to your back and centered, and do a test carry around the block before the trail. Search “backpack” on the listings page to compare packs by size and price.</div>
+
+  <div class="guides-bottom"><a class="back-link" href="#compare" data-back-to-listings>← Back to Search &amp; Listings</a><a class="back-link" href="#top" data-back-to-listings style="background:var(--card);color:var(--ink);border:1px solid var(--line);">Go to Search ↑</a></div>
+  </div></section>
+</main>
+<footer><div class="wrap">
+  <div class="footer-grid">
+    <div><b>About Retail Remedy</b><p>Retail Remedy — the remedy for high retail prices. A price comparison and free coupon site for everyday shopping — groceries, tech, home, fashion, plus parts &amp; accessories for the devices you already own. Search, compare the real total, clip, and save.</p></div>
+    <div><b>Shoppers</b><ul><li><a href="#compare">Compare Prices</a></li><li><a href="#parts">Parts &amp; Accessories</a></li><li><a href="#guides" data-open-guides>How-To Guides &amp; Instructions</a></li><li><a href="#coupons">Today's Coupons</a></li><li><a href="#stores">Browse Stores</a></li><li><a href="#activity">Activity &amp; Stats</a></li><li><a href="#how">How It Works</a></li></ul></div>
+    <div><b>Partners</b><ul><li><a href="#brands">Become a Sponsor</a></li><li><a href="#brands">Affiliate Networks</a></li><li><a href="#brands">Outreach Pitch</a></li></ul></div>
+    <div><b>Trust &amp; Legal</b><ul><li><a href="#disclosure">Affiliate Disclosure</a></li><li>Privacy: We don't sell search history. This page logs only your in-page actions and search words (see Activity &amp; Stats), only in this browser tab — it clears when you close it, and nothing is sent to a server from this page.</li><li>Contact: Add your business email here before launch.</li></ul></div>
+  </div>
+  <p style="margin-top:24px;">Sample prices and SAMPLE codes are launch placeholders for layout and testing. Replace them with approved affiliate feeds/codes before advertising any deal as live or verified.</p>
+</div></footer>
+
+<div class="wallet-panel" id="walletPanel" aria-label="Coupon wallet">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><h3 style="font-size:20px;">My Coupon Wallet</h3><button class="btn" id="walletClose">Close</button></div>
+  <div id="walletItems"><p style="color:var(--muted);">No coupons clipped yet. Tap “Clip Coupon” on any deal and it'll show up here for checkout.</p></div>
+  <div class="btn-row"><button class="btn primary" id="downloadWallet">Download Wallet (.txt)</button><button class="btn" id="copyWallet">Copy All Codes</button></div>
+  <p style="font-size:12px;color:var(--muted);margin-top:10px;">Saved only in this tab for this session — download it if you want to keep it.</p>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+
+
+
+<script>
+document.querySelectorAll('img[data-b64]').forEach(function(img){
+  fetch(img.getAttribute('data-b64')).then(function(r){return r.text()}).then(function(t){
+    var bin=atob(t), arr=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+    img.src=URL.createObjectURL(new Blob([arr],{type:img.getAttribute('data-mime')}));
+  }).catch(function(){});
+});
+</script>
+<script src="app.js"></script>
+</body>
+</html>
