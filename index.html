@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<link rel="icon" href="data:," />
+<link rel="icon" type="image/png" href="data:," id="siteFavicon" data-b64="favicon.png.b64" data-mime="image/png"" />
 <title>Retail Remedy — The remedy for high retail prices | Compare Prices, Clip Free Coupons</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,11 @@
 <body>
 
 <div class="topbar"><div class="wrap topbar-in">
-  <a href="#top" style="font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;color:var(--ink);letter-spacing:-.02em;white-space:nowrap;">Retail <span style="background:var(--yellow);color:#0b100f;padding:1px 7px;border-radius:6px;">Remedy</span></a>
+  <a href="#top" class="brand" aria-label="Retail Remedy — back to top"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="logo.png.b64" data-mime="image/png" data-parts="4"" alt="Retail Remedy" /></a>
   <nav class="navlinks" aria-label="Main">
-    <a href="#compare">Compare Prices</a><a href="#parts">Parts &amp; Accessories</a><a href="#guides" data-open-guides>How-To Guides &amp; Instructions</a><a href="#coupons">Coupons</a><a href="#stores">Stores</a><a href="#brands">For Brands &amp; Sponsors</a><a href="#activity">Activity &amp; Stats</a><a href="#how">How It Works</a>
+    <a href="#compare">Compare Prices</a><a href="#parts">Parts &amp; Accessories</a><a href="#guides" data-open-guides>Project Pricing and Know-How</a><a href="#coupons">Coupons</a><a href="#stores">Stores</a><a href="#brands">For Brands &amp; Sponsors</a><a href="#how">How It Works</a>
   </nav>
+  <button class="wallet-btn" id="projectOpen" style="background:var(--card);color:var(--ink);border:1.5px solid var(--line);">🛒 Cart / My Project <span class="wallet-count" id="projectCount">0</span></button>
   <button class="wallet-btn" id="walletOpen">🎟️ My Coupon Wallet <span class="wallet-count" id="walletCount">0</span></button>
 </div></div>
 
@@ -27,8 +28,11 @@
       <div style="font-weight:900;letter-spacing:.1em;font-size:11px;margin-bottom:10px;color:var(--yellow);">RETAIL REMEDY • FREE TO USE • NO MEMBERSHIP • NO SIGN-UP TO CLIP</div>
       <form class="searchbox" id="heroSearchForm">
         <input id="heroSearch" type="search" placeholder="Search anything: earbuds, USB-C cable, vacuum filter, printer ink, phone case…" aria-label="Search for a product, part or accessory" />
+        <input id="heroZip" class="zip-input" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="ZIP" aria-label="ZIP code — shows local stores for your area" title="ZIP code — local deals isolate to this ZIP" />
+        <button type="button" class="loc-btn" id="useLocationBtn" title="Use your browser's location to fill in your ZIP code">📍 Use my location</button>
         <button type="submit">Compare Prices →</button>
       </form>
+      <div class="zip-status prompt" id="zipStatus" role="status">Showing <b>nationwide deals</b>. Add your <b>ZIP code</b> above — or tap <b>📍 Use my location</b> — to see local stores near you. Local deals only show for the ZIP they serve.</div>
       <div class="chips" aria-label="Popular searches">
         <span style="font-weight:700;font-size:13px;align-self:center;">Popular:</span>
         <button class="chip" data-search="paper towels">Paper Towels</button>
@@ -46,7 +50,8 @@
 <section class="section alt" id="compare"><div class="wrap">
   <div class="kicker">Price comparison — products, parts &amp; accessories</div>
   <h2 id="compareTitle">Paper Towels — 12 Pack</h2>
-  <p class="sub">Prices sorted lowest to highest. Coupon price is what you pay after clipping. Includes whole products <em>and</em> parts &amp; accessories — items marked <span class="part-badge">Part / Accessory</span> are replacements or add-ons for a device you already own. Sample prices for launch — swap in live affiliate feeds once your network accounts are approved.</p>
+  <p class="sub">Prices sorted lowest to highest. Coupon price is what you pay after clipping. Includes whole products <em>and</em> parts &amp; accessories — items marked <span class="part-badge">Part / Accessory</span> are replacements or add-ons for a device you already own. Items marked <span class="local-badge" style="margin-left:0;">Local</span> are local stores that only show for the ZIP codes they serve; everything else is nationwide. Sample prices for launch — swap in live affiliate feeds once your network accounts are approved.</p>
+  <div class="zip-banner prompt" id="zipBanner" role="status">Add a ZIP code in the search bar above to see local deals near you — right now you're seeing nationwide offers only.</div>
 
   <div class="compare-layout">
     <div class="product-list" id="productList" role="listbox" aria-label="Products"></div>
@@ -59,12 +64,15 @@
       <div class="guide-panel">
         <button class="guide-toggle" id="guideToggle" aria-expanded="false">📖 How to install / use this</button>
         <div class="guide-body" id="guideBody">
+          <p class="guide-lead" id="guideLead"></p>
           <h4 id="guideTitle">—</h4>
           <p class="guide-sub" id="guideSub">—</p>
           <ol class="howto" id="guideSteps"></ol>
+          <button type="button" class="video-btn" id="guideVideoBtn">▶ Watch install videos (YouTube)</button>
+          <span class="proj-video-terms" id="guideVideoTerms"></span>
         </div>
       </div>
-      <div style="padding:16px 22px;background:var(--bg2);font-size:13px;color:var(--muted);">How to use: Tap <b>Get Coupon</b> on the store you want, copy the code that appears, then paste it at that store's checkout. Prices change — check the store for the final total including tax &amp; shipping.</div>
+      <div style="padding:16px 22px;background:var(--bg2);font-size:13px;color:var(--muted);">How to use: At the store? Tap <b>Show Code</b> and hold the big code up at the register. Shopping online? Tap <b>Order Online</b> — we copy the code and take you to the store's site to paste it at their checkout. Prices change — the store's total, including tax &amp; shipping, is final.</div>
     </div>
   </div>
 
@@ -78,11 +86,11 @@
       <p class="lede"><strong>The remedy for high retail prices.</strong> Now including parts &amp; misc bits for your devices — not just the device itself. Search a product <em>or</em> the part that keeps it running: a charger, filter, basket, cable, case, ink cartridge or replacement tip, compare sample prices across stores, then clip a free coupon to use at checkout.</p>
       <p style="font-size:13px;color:#c9d1d6;margin:0 0 18px;max-width:560px;">💡 <strong>Tip:</strong> Search by device + part — try “coffee maker filter”, “laptop charger”, “watch band” or “earbud tips” — or browse by device below.</p>
     </div>
-    <div class="hero-img"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="hero.webp.b64" data-mime="image/webp" alt="Smiling shopper holding colorful shopping bags" /></div>
+    <div class="hero-img"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="hero.webp.b64" data-mime="image/webp" data-parts="3"" alt="Smiling shopper holding colorful shopping bags" /></div>
   </div>
   <div class="stats">
-    <div><b>18 sample products &amp; parts</b><span>6 products + 12 parts &amp; accessories</span></div>
-    <div><b>18 sample coupons</b><span>Ready to clip below for testing</span></div>
+    <div><b>21 sample products &amp; parts</b><span>Products + parts &amp; accessories + 3 sample local pilot listings (Allen / Lucas, TX)</span></div>
+    <div><b>21 sample coupons</b><span>Nationwide + sample local pilot coupons — local ones show only for their ZIP</span></div>
     <div><b>Up to 44% off</b><span>Best sample saving in this demo</span></div>
     <div><b>$0</b><span>Cost to search &amp; clip</span></div>
   </div>
@@ -92,8 +100,8 @@
 
 <section class="section" id="guides-link" style="padding-top:0;padding-bottom:8px;"><div class="wrap">
   <div class="guides-banner">
-    <div><h3>How-To Guides &amp; Instructions</h3><p>Step-by-step instructions now live on their own page — install guides, fitment checks, the Mercedes radio walk-through, model airplane build, and coupon-at-checkout help. Highlighted parts &amp; tools in the guides pop out their cheapest sample price.</p></div>
-    <a href="#guides" data-open-guides>Open How-To Guides &amp; Instructions →</a>
+    <div><h3>Project Pricing and Know-How</h3><p>Step-by-step instructions now live on their own page — install guides, fitment checks, the Mercedes radio walk-through, model airplane build, and coupon-at-checkout help. Highlighted parts &amp; tools in the guides pop out their cheapest sample price.</p></div>
+    <a href="#guides" data-open-guides>Open Project Pricing and Know-How →</a>
   </div>
 </div></section>
 
@@ -103,9 +111,9 @@
   <h2>Search. Compare. Clip. Save.</h2>
   <p class="sub">Shoppers will check prices if you make it effortless. Retail Remedy does that for groceries, tech, home goods, fashion — and for the parts &amp; misc bits that keep your devices running. Search once, see every store's price, and take the best one.</p>
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><h3>Search product or part</h3><p>Type the whole item — or just the part: “USB-C cable”, “vacuum filter”, “air fryer basket”. Add your device name (“coffee maker filter”) and we'll match compatible parts, not just the headline product.</p></div>
+    <div class="step"><div class="step-num">1</div><h3>Search product or part + ZIP</h3><p>Type the whole item — or just the part: “USB-C cable”, “vacuum filter”, “air fryer basket”. Add your device name (“coffee maker filter”) and we'll match compatible parts, not just the headline product. Add your ZIP and local stores for your area join the nationwide results — local deals never leak in from other ZIPs.</p></div>
     <div class="step"><div class="step-num">2</div><h3>Compare the real total</h3><p>See shelf price, coupon price, shipping / pickup, and savings side-by-side, sorted lowest first. For parts, check the compatibility note on each comparison before you buy.</p></div>
-    <div class="step"><div class="step-num">3</div><h3>Clip &amp; use at checkout</h3><p>Reveal the code, copy it, or save it to your Coupon Wallet. Paste it online or show it in store — every Retail Remedy coupon is free to clip and use.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Clip &amp; use at checkout</h3><p>Clip it to your Coupon Wallet. At the register, tap <b>Show Code</b> and hold it up — that's it. Online, <b>Order Online</b> copies the code and takes you to the store to paste it. Every Retail Remedy coupon is free to clip and use.</p></div>
   </div>
 </div></section>
 
@@ -133,7 +141,8 @@
 <section class="section" id="coupons"><div class="wrap">
   <div class="kicker">Today's coupons</div>
   <h2>Clip a coupon, use it at checkout</h2>
-  <p class="sub">Filter by category or store. Every card shows the offer, expiry, when it was last checked, and the fine print — just like a trustworthy coupon should.</p>
+  <p class="sub">Filter by category or store. Every card shows the offer, expiry, when it was last checked, and the fine print — just like a trustworthy coupon should. Local coupons (badged <b>Local</b>) appear only when your ZIP matches the area they serve.</p>
+  <p id="couponZipNote" style="color:var(--muted);font-size:14px;margin:10px 0 0;">Showing nationwide coupons. Add a ZIP in the search bar to reveal local coupons for your area.</p>
   <div class="pills" id="catPills">
     <button class="pill active" data-cat="all">All Coupons</button>
     <button class="pill" data-cat="Groceries">Groceries &amp; Household</button>
@@ -148,10 +157,10 @@
 </div></section>
 
 <section class="section alt" id="stores"><div class="wrap">
-  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="aisle.jpg.b64" data-mime="image/jpeg" alt="Shopping cart in a supermarket aisle" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:24px;" />
+  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="aisle.jpg.b64" data-mime="image/jpeg"" alt="Shopping cart in a supermarket aisle" style="width:100%;height:220px;object-fit:cover;border-radius:16px;margin-bottom:24px;" />
   <div class="kicker">Browse by store</div>
   <h2>Start with the store you already shop</h2>
-  <p class="sub">Tap a store to filter its coupons above.</p>
+  <p class="sub">Tap a store to filter its coupons above. Local stores join this list when your ZIP matches the area they serve — try the Allen / Lucas, TX pilot ZIPs 75013 or 75002 in the search bar. Own a local store anywhere in the US? <a href="mailto:partners@retailremedy.net?subject=Join%20Retail%20Remedy%20—%20local%20store">Join free — partners@retailremedy.net</a>.</p>
   <div class="store-grid" id="storeGrid"></div>
 </div></section>
 
@@ -166,7 +175,7 @@
     <article class="brand-card"><h3>Rakuten Advertising</h3><p>Premium retail brands and a long-running publisher network (formerly LinkShare). Best for fashion, department stores and established retailers.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Apply via Rakuten Advertising — Publishers</span></article>
     <article class="brand-card"><h3>Impact.com</h3><p>Partnership platform behind programs for major retailers including Walmart. Walmart typically wants a live site with content and a visible privacy policy — thin or brand-new sites are often declined, so apply after launch content is up.</p><a class="sponsor-link" data-sponsor="Impact.com" href="https://impact.com/?ref=hellopartner.com" target="_blank" rel="noopener">Explore impact.com →</a></article>
     <article class="brand-card"><h3>Amazon Associates</h3><p>Easiest to join, useful for product price checks — but don't make it your only source for a coupon-only site. You need 3 qualifying sales in the first 180 days to stay in, plus original content on a public site.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Join at affiliate-program.amazon.com</span></article>
-    <article class="brand-card"><h3>Direct Sponsors — After Traffic</h3><p>Once you have traffic, pitch brands directly for an exclusive code for your readers, a featured store page, and a newsletter slot. Use the pitch below — customize the name/email before sending.</p><span style="color:#00e5c7;font-weight:700;font-size:14px;">Pitch template ↓</span></article>
+    <article class="brand-card"><h3>Direct Sponsors — After Traffic</h3><p>Once the site has traffic, brands can partner directly for an exclusive code for our readers, a featured store page, and a newsletter slot. Direct sponsor outreach is handled personally once the audience is established.</p></article>
   </div>
 
   <div class="perks">
@@ -175,102 +184,6 @@
     <div class="perk"><b>Newsletter Placement</b><p>A deal slot in the weekly deals email once the list launches — always labeled as sponsored.</p></div>
   </div>
 
-  <div class="pitch-box">
-    <h3 style="font-size:20px;margin-bottom:8px;">Sponsor outreach pitch — copy &amp; customize</h3>
-    <p style="color:#5b636e;font-size:14px;margin:0 0 12px;">Replace the brackets, then send from your own email. Don't send until you've added your real contact name and email.</p>
-    <textarea id="pitchText">Subject: Exclusive coupon for [Brand] shoppers on Retail Remedy
-
-Hi [Name / Partnerships Team],
-
-I'm launching Retail Remedy — the remedy for high retail prices. It's a shopping price-comparison site: shoppers search an item, compare prices across stores, and clip a free coupon to use at checkout.
-
-I'm inviting [Brand] to be a launch sponsor. In return you'd get:
-• A featured store page with your best prices and offers
-• A featured deal slot in our Today's Coupons section
-• A placement in our weekly deals email as the list grows
-
-What I'm asking for to start:
-• Approval in your affiliate program (Awin / CJ / Impact / direct), or
-• An exclusive code for our readers (even 10–15% off helps shoppers choose you when prices are tied)
-
-Happy to share our launch and traffic plan and to label all sponsored placements clearly.
-
-Thanks for considering it,
-[Your Full Name]
-[Your Email] • [Site URL]</textarea>
-    <div class="btn-row">
-      <button class="btn primary" id="copyPitch">Copy Pitch</button>
-      <button class="btn" id="downloadPitch">Download Pitch (.txt)</button>
-      <a class="btn yellow" href="mailto:?subject=Exclusive%20coupon%20partnership%20with%20Retail%20Remedy&body=Hi%20Partnerships%20Team%2C%0A%0AI%27m%20launching%20Retail%20Remedy%20%E2%80%94%20the%20remedy%20for%20high%20retail%20prices.%20I%27d%20love%20to%20discuss%20an%20exclusive%20coupon%20for%20our%20readers.%0A%0AThanks!">Open in Email App</a>
-    </div>
-  </div>
-</div></section>
-
-<section class="section alt" id="activity"><div class="wrap">
-  <div class="kicker">Data tracking — this session</div>
-  <h2>Activity &amp; Stats</h2>
-  <p class="sub">Everything done on this page in this tab is logged with a timestamp — searches, price comparisons (per store), coupon reveals &amp; copies, click-throughs to retailers and sponsors, how-to guide views, and price pop-outs opened from highlighted terms in the guides. Use it to see what's working, then export the log for your records or a spreadsheet / analytics tool later.</p>
-  <p style="color:var(--muted);font-size:14px;max-width:760px;margin-top:10px;">Privacy: we only record actions on this site and the search words you type here — no name, email, address, or device fingerprint is collected, and nothing is sent to a server from this page. The log lives only in this browser tab and clears when you close or refresh it, so export it if you want to keep it.</p>
-
-  <div class="activity-grid" aria-live="polite">
-    <div class="stat-card"><b id="statTotal">0</b><span>Total tracked events</span><small id="statSession">Session started —</small></div>
-    <div class="stat-card"><b id="statSearches">0</b><span>Product searches</span><small id="statTopSearch">No searches yet</small></div>
-    <div class="stat-card"><b id="statCompare">0</b><span>Price-comparison views</span><small id="statCompareStores">0 store rows viewed</small></div>
-    <div class="stat-card"><b id="statReveals">0</b><span>Coupon reveals</span><small id="statClips">0 clipped to wallet</small></div>
-    <div class="stat-card"><b id="statCopies">0</b><span>Coupon copies</span><small>Copy Code, wallet &amp; offer copies</small></div>
-    <div class="stat-card"><b id="statRetailerClicks">0</b><span>Retailer click-throughs</span><small>Get Coupon &amp; store picks</small></div>
-    <div class="stat-card"><b id="statSponsorClicks">0</b><span>Sponsor click-throughs</span><small>Awin, Impact &amp; sponsor pitch</small></div>
-    <div class="stat-card"><b id="statLastEvent">—</b><span>Last event</span><small id="statLastDetail">Nothing tracked yet — try a search above</small></div>
-  </div>
-
-  <div class="activity-cols">
-    <div class="panel">
-      <h3>By store — comparison views</h3>
-      <div id="byStoreList"><p style="color:var(--muted);font-size:14px;margin:0;">No comparison views yet.</p></div>
-      <h3 style="margin-top:22px;">By event type</h3>
-      <div id="byTypeList"><p style="color:var(--muted);font-size:14px;margin:0;">No events yet.</p></div>
-      <h3 style="margin-top:22px;">Event data — ready to export</h3>
-      <p style="color:var(--muted);font-size:13.5px;margin:0;">Each event is one structured record, so the export drops straight into a spreadsheet, database, or analytics import later. Also available in the browser as <code>window.ShopTracker</code>.</p>
-      <div class="schema-box">{
-  "id": "evt_…",
-  "timestamp": "2026-10-13T…Z",  // ISO 8601
-  "timestamp_ms": 179…,
-  "session_id": "sess_…",
-  "type": "search | compare_view |
-    compare_store_view | coupon_reveal |
-    coupon_copy | coupon_clip |
-    retailer_click | sponsor_click | …",
-  "query": "what you searched (if any)",
-  "product_id": "…", "product_name": "…",
-  "store": "…", "category": "…",
-  "coupon_code": "…",
-  "source": "hero_search | get_coupon | guide_toggle | …",
-  "detail": "human-readable summary"
-}</div>
-    </div>
-
-    <div class="panel">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:6px;">
-        <h3 style="margin:0;">Recent activity</h3>
-        <label style="font-size:13px;font-weight:700;">Show: <select class="filter-select" id="eventFilter">
-          <option value="all">All event types</option>
-          <option value="search">Searches</option>
-          <option value="compare">Comparisons</option>
-          <option value="coupon">Coupons (reveal / copy / clip)</option>
-          <option value="click">Click-throughs (retailer / sponsor)</option>
-          <option value="guide">How-to instructions viewed</option>
-        </select></label>
-      </div>
-      <div class="event-feed" id="eventFeed"><p style="color:var(--muted);font-size:14px;">No activity yet in this session. Search for a product, compare prices, or clip a coupon and it will appear here with its timestamp.</p></div>
-      <div class="btn-row" style="margin-top:16px;">
-        <button class="btn primary" id="exportJson">⬇ Export JSON</button>
-        <button class="btn" id="exportCsv">⬇ Export CSV</button>
-        <button class="btn" id="copyJson">Copy JSON</button>
-        <button class="btn" id="clearLog">Clear Log (this tab)</button>
-      </div>
-      <p style="font-size:12.5px;color:var(--muted);margin-top:10px;">Exports are generated on your device from the in-memory log — the file is the record. Clearing only clears this tab's log.</p>
-    </div>
-  </div>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -285,7 +198,7 @@ Thanks for considering it,
 <main id="view-guides" class="view-hidden" hidden>
 <section class="section" id="guides" style="padding-top:28px;"><div class="wrap">
   <div class="guides-topbar"><a class="back-link" href="#compare" data-back-to-listings>← Back to Search &amp; Listings</a><span style="font-size:13px;font-weight:700;color:var(--muted);">Separate page • Instructions only — search &amp; prices stay on the listings page</span></div>
-  <div class="kicker">How-to instructions</div>
+  <div class="kicker">Project Pricing and Know-How</div>
   <h2>Instructions for the job, not just the price</h2>
   <p class="sub">Buying the part is only half the job. These step-by-step guides cover the searches shoppers actually bring us — using a coupon at checkout, checking a part really fits, and finishing the install or project at home. Every product and part on the listings page also carries its own short instructions: go back to the listings, pick an item, then tap <b>“How to install / use this”</b> on its comparison panel.</p>
   <p class="sub" style="margin-top:10px;">🛒 <b>Shoppable steps:</b> words highlighted in the guides — parts, tools and materials like <span class="shop-term" data-term="dash-kit" role="button" tabindex="0">dash kit</span> — pop out their cheapest sample price, the store that has it, and its coupon. Tap one (or hover on desktop) while you read; tap ✕ or anywhere else to close it and keep reading.</p>
@@ -344,34 +257,184 @@ Thanks for considering it,
 </main>
 <footer><div class="wrap">
   <div class="footer-grid">
-    <div><b>About Retail Remedy</b><p>Retail Remedy — the remedy for high retail prices. A price comparison and free coupon site for everyday shopping — groceries, tech, home, fashion, plus parts &amp; accessories for the devices you already own. Search, compare the real total, clip, and save.</p></div>
-    <div><b>Shoppers</b><ul><li><a href="#compare">Compare Prices</a></li><li><a href="#parts">Parts &amp; Accessories</a></li><li><a href="#guides" data-open-guides>How-To Guides &amp; Instructions</a></li><li><a href="#coupons">Today's Coupons</a></li><li><a href="#stores">Browse Stores</a></li><li><a href="#activity">Activity &amp; Stats</a></li><li><a href="#how">How It Works</a></li></ul></div>
-    <div><b>Partners</b><ul><li><a href="#brands">Become a Sponsor</a></li><li><a href="#brands">Affiliate Networks</a></li><li><a href="#brands">Outreach Pitch</a></li></ul></div>
-    <div><b>Trust &amp; Legal</b><ul><li><a href="#disclosure">Affiliate Disclosure</a></li><li>Privacy: We don't sell search history. This page logs only your in-page actions and search words (see Activity &amp; Stats), only in this browser tab — it clears when you close it, and nothing is sent to a server from this page.</li><li>Contact: Add your business email here before launch.</li></ul></div>
+    <div><span class="footer-brand"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-b64="logo.png.b64" data-mime="image/png" data-parts="4"" alt="Retail Remedy" /></span><p>Retail Remedy — the remedy for high retail prices. A price comparison and free coupon site for everyday shopping — groceries, tech, home, fashion, plus parts &amp; accessories for the devices you already own. Search, compare the real total, clip, and save.</p></div>
+    <div><b>Shoppers</b><ul><li><a href="#compare">Compare Prices</a></li><li><a href="#parts">Parts &amp; Accessories</a></li><li><a href="#guides" data-open-guides>Project Pricing and Know-How</a></li><li><a href="#coupons">Today's Coupons</a></li><li><a href="#stores">Browse Stores</a></li><li><a href="#how">How It Works</a></li></ul></div>
+    <div><b>Partners</b><ul><li><a href="#brands">Become a Sponsor</a></li><li><a href="#brands">Affiliate Networks</a></li></ul></div>
+    <div><b>Trust &amp; Legal</b><ul><li><a href="#disclosure">Affiliate Disclosure</a></li><li>Privacy: We don't sell search history. Nothing you do on this page is sent to a server from this page.</li><li>Contact: Add your business email here before launch.</li></ul></div>
   </div>
   <p style="margin-top:24px;">Sample prices and SAMPLE codes are launch placeholders for layout and testing. Replace them with approved affiliate feeds/codes before advertising any deal as live or verified.</p>
 </div></footer>
 
+<div class="wallet-panel" id="projectPanel" aria-label="My project and cart">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><h3 style="font-size:20px;">🛒 Cart / My Project</h3><button class="btn" id="projectClose">Close</button></div>
+  <p style="font-size:13.5px;color:var(--muted);margin:0 0 6px;">Everything you're gathering for one job, grouped by vendor. <b>Each vendor ships separately</b> — you order and pay each vendor on their own route. Retail Remedy never ships or takes payment.</p>
+  <div style="font-size:14px;margin:0 0 2px;">Current project: <b id="currentProjectName">Untitled project</b></div>
+  <div style="font-size:15px;margin:0 0 12px;">Combined total (sample): <b id="projectTotal">$0.00</b></div>
+  <div id="projectGroups"><p style="color:var(--muted);">Nothing here yet. Tap <b>+ Project</b> on any product or part — or <b>Add to Cart</b> on a coupon pop-out — and it lands here, grouped by vendor.</p></div>
+  <div style="border-top:2px solid var(--line);margin-top:16px;padding-top:14px;">
+    <b style="font-family:'Archivo';font-size:16px;">💾 Save this project</b>
+    <div class="save-proj-row">
+      <input id="saveProjectName" type="text" placeholder="Name it — e.g. Bathroom remodel" aria-label="Project name" maxlength="60" />
+      <button type="button" class="save-proj-btn" id="saveProjectBtn">Save Project</button>
+    </div>
+    <p class="proj-save-note">Projects are saved on this device — no account, no sign-up. Your current project also auto-saves as you build it, so leaving and coming back won't lose it.</p>
+    <button type="button" class="new-proj-btn" id="newProjectBtn">＋ Start a fresh, empty project</button>
+  </div>
+  <div style="border-top:1px dashed var(--line);margin-top:16px;padding-top:14px;">
+    <b style="font-family:'Archivo';font-size:16px;">📁 My Projects</b>
+    <div id="savedProjectsList" style="margin-top:10px;"><p style="color:var(--muted);font-size:13.5px;margin:0;">No saved projects yet — name the one above and tap Save Project.</p></div>
+  </div>
+</div>
 <div class="wallet-panel" id="walletPanel" aria-label="Coupon wallet">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><h3 style="font-size:20px;">My Coupon Wallet</h3><button class="btn" id="walletClose">Close</button></div>
-  <div id="walletItems"><p style="color:var(--muted);">No coupons clipped yet. Tap “Clip Coupon” on any deal and it'll show up here for checkout.</p></div>
+  <p style="font-size:13.5px;color:var(--muted);margin:0 0 12px;">Which store are you at? Coupons are grouped by store — each store checks out separately. Tap <b>Start Checkout</b> for that store when you're at its register.</p>
+  <div id="walletItems"><p style="color:var(--muted);">No coupons clipped yet. Tap “Show Code” or “Order Online” on any deal and it'll show up here, grouped by store.</p></div>
   <div class="btn-row"><button class="btn primary" id="downloadWallet">Download Wallet (.txt)</button><button class="btn" id="copyWallet">Copy All Codes</button></div>
   <p style="font-size:12px;color:var(--muted);margin-top:10px;">Saved only in this tab for this session — download it if you want to keep it.</p>
 </div>
+<button class="wallet-fab" id="walletFab" aria-label="Open my coupon wallet">🎟️ My Wallet <span class="wallet-count" id="walletFabCount">0</span></button>
+<div class="checkout-backdrop" id="checkoutBackdrop">
+  <div class="checkout-card" role="dialog" aria-modal="true" aria-label="Checkout view — show this screen at the register">
+    <div id="checkoutMain">
+      <div class="checkout-progress" id="checkoutProgress" style="display:none;"></div>
+      <div class="checkout-show">Show this screen at checkout</div>
+      <div class="checkout-store" id="checkoutStore">—</div>
+      <div class="checkout-offer" id="checkoutOffer"></div>
+      <div class="checkout-qr-wrap" id="checkoutQrWrap" style="display:none;">
+        <div class="checkout-qr"><img id="checkoutQrImg" alt="Coupon QR code for the cashier to scan" /></div>
+        <div class="checkout-qr-label" id="checkoutQrLabel">Ask the cashier to scan</div>
+      </div>
+      <div class="checkout-code" id="checkoutCode">—</div>
+      <div class="checkout-meta" id="checkoutMeta"></div>
+      <div class="checkout-terms" id="checkoutTerms"></div>
+      <button type="button" class="checkout-btn primary" id="checkoutCopy">Copy Code</button>
+      <button type="button" class="checkout-btn used-btn" id="checkoutUsed">✓ Mark as Used</button>
+      <div class="checkout-nav" id="checkoutNav" style="display:none;">
+        <button type="button" class="btn" id="checkoutBack">← Back</button>
+        <button type="button" class="btn" id="checkoutNext">Skip →</button>
+      </div>
+      <button type="button" class="checkout-close-link" id="checkoutClose">Close</button>
+    </div>
+    <div id="checkoutSummary" style="display:none;">
+      <div class="checkout-show">All done 🎉</div>
+      <div class="checkout-store" id="checkoutSummaryStore"></div>
+      <p class="checkout-offer" id="checkoutSummaryText"></p>
+      <button type="button" class="checkout-btn primary" id="checkoutSummaryDone">Done</button>
+    </div>
+  </div>
+</div>
+<div class="coupon-modal-backdrop" id="couponModalBackdrop">
+  <div class="coupon-modal" role="dialog" aria-modal="true" aria-labelledby="couponModalStore" aria-label="Coupon card">
+    <button type="button" class="coupon-modal-close" id="couponModalClose" aria-label="Close coupon card">✕</button>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><span class="sample-badge">Sample Coupon</span><span style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);">Free to clip &amp; use</span></div>
+    <div class="coupon-modal-store" id="couponModalStore">—</div>
+    <div class="coupon-modal-product" id="couponModalProduct"></div>
+    <div class="coupon-modal-title" id="couponModalTitle"></div>
+    <div class="coupon-modal-desc" id="couponModalDesc"></div>
+    <div class="coupon-modal-storeinfo" id="couponModalStoreInfo"></div>
+    <div class="coupon-modal-perf" aria-hidden="true"></div>
+    <div class="coupon-modal-price" id="couponModalPrice"></div>
+    <div class="coupon-modal-code-label">Coupon code — paste at checkout</div>
+    <div class="coupon-modal-code" id="couponModalCode">—</div>
+    <div class="coupon-modal-actions">
+      <button type="button" class="copy-main" id="couponModalCartBtn">🛒 Add to Cart</button>
+    </div>
+    <div class="coupon-modal-actions" style="margin-top:8px;">
+      <button type="button" class="btn" id="couponModalCopy" style="flex:1;">Copy Code</button>
+      <button type="button" class="btn" id="couponModalWalletBtn">View Wallet</button>
+      <button type="button" class="btn" id="couponModalDone">Done</button>
+    </div>
+    <button type="button" class="coupon-modal-cart-note" id="couponModalCartLink" style="display:none;">Cart (0) · View →</button>
+    <div class="coupon-modal-clipped" id="couponModalClipped">✓ Clipped to your Coupon Wallet</div>
+    <p class="coupon-modal-fine" id="couponModalFine">Sample code for launch — the store's checkout total is final. Prices can change; check the store for tax &amp; shipping.</p>
+  </div>
+</div>
 <div class="toast" id="toast">Copied!</div>
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="app-1.js"></script>
+<script src="app-2.js"></script>
 
 <script>
-document.querySelectorAll('img[data-b64]').forEach(function(img){
-  fetch(img.getAttribute('data-b64')).then(function(r){return r.text()}).then(function(t){
-    var bin=atob(t), arr=new Uint8Array(bin.length);
-    for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
-    img.src=URL.createObjectURL(new Blob([arr],{type:img.getAttribute('data-mime')}));
-  }).catch(function(){});
-});
+(function(){
+  var listings=document.getElementById("view-listings");
+  var guidesView=document.getElementById("view-guides");
+  if(!listings||!guidesView) return;
+  var guidesLogged=false;
+  function showGuides(pushScroll){
+    listings.classList.add("view-hidden"); listings.setAttribute("hidden","");
+    guidesView.classList.remove("view-hidden"); guidesView.removeAttribute("hidden");
+    document.title="Project Pricing and Know-How — Retail Remedy";
+    if(pushScroll!==false) window.scrollTo({top:0,behavior:"auto"});
+    if(!guidesLogged && typeof trackEvent==="function"){
+      try{ trackEvent("guide_view",{source:"guides_page",detail:"Opened separate Project Pricing and Know-How page"}); }catch(e){}
+      guidesLogged=true;
+    }
+    var sec=document.getElementById("guides"); if(sec && pushScroll===false){ /* keep position */ }
+  }
+  function showListings(){
+    guidesView.classList.add("view-hidden"); guidesView.setAttribute("hidden","");
+    listings.classList.remove("view-hidden"); listings.removeAttribute("hidden");
+    document.title="Retail Remedy \u2014 The remedy for high retail prices | Compare Prices, Clip Free Coupons";
+    guidesLogged=false;
+  }
+  window.__showListings=showListings;
+  window.__showGuides=showGuides;
+  function route(){
+    if(location.hash==="#guides"){ showGuides(true); }
+    else { 
+      var wasGuides=!guidesView.classList.contains("view-hidden");
+      showListings();
+      if(wasGuides && location.hash){
+        var t=document.querySelector(location.hash);
+        if(t){ setTimeout(function(){ t.scrollIntoView({behavior:"auto"}); },30); }
+      }
+    }
+  }
+  window.addEventListener("hashchange", route);
+  document.addEventListener("click", function(e){
+    var a=e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if(!a) return;
+    var href=a.getAttribute("href");
+    if(href==="#guides"){ e.preventDefault(); if(location.hash!=="#guides"){ history.pushState(null,"","#guides"); } showGuides(true); }
+    else if(a.hasAttribute("data-back-to-listings")){
+      e.preventDefault(); showListings(); history.pushState(null,"", href==="#top"?"#top":"#compare");
+      var target=document.querySelector(href==="#top"?"#top":"#compare"); var doScroll=function(){ if(target) target.scrollIntoView({behavior:"auto"}); else window.scrollTo({top:0}); }; doScroll(); setTimeout(doScroll,60); setTimeout(doScroll,180);
+    }
+    else if(href && href.charAt(0)==="#" && href.length>1 && !guidesView.classList.contains("view-hidden")){
+      // Leaving guides view for a listings anchor
+      e.preventDefault(); showListings(); history.pushState(null,"",href);
+      var el=document.querySelector(href); if(el) setTimeout(function(){ el.scrollIntoView({behavior:"smooth"}); },30);
+    }
+  });
+  // Initial route
+  if(location.hash==="#guides"){ showGuides(false); window.scrollTo({top:0}); }
+  else { showListings(); }
+})();
 </script>
-<script src="app.js"></script>
+<script>
+(function(){
+  function fetchParts(base, parts, cb){
+    if(!parts){ fetch(base).then(function(r){return r.text()}).then(cb).catch(function(){}); return; }
+    var texts=[], done=0;
+    for(var i=0;i<parts;i++){
+      (function(idx){
+        fetch(base+'.part'+(idx<9?'0':'')+(idx+1)).then(function(r){return r.text()}).then(function(t){
+          texts[idx]=t; done++; if(done===parts) cb(texts.join(''));
+        }).catch(function(){});
+      })(i);
+    }
+  }
+  document.querySelectorAll('[data-b64]').forEach(function(el){
+    var parts=parseInt(el.getAttribute('data-parts')||'0',10);
+    fetchParts(el.getAttribute('data-b64'), parts, function(t){
+      var bin=atob(t.replace(/\s+/g,'')), arr=new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+      var url=URL.createObjectURL(new Blob([arr],{type:el.getAttribute('data-mime')}));
+      if(el.tagName==='LINK'){ el.href=url; } else { el.src=url; }
+    });
+  });
+})();
+</script>
 </body>
 </html>
