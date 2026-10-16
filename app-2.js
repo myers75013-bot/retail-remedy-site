@@ -631,7 +631,7 @@ document.getElementById("guideToggle").onclick=function(){
 document.getElementById("walletOpen").onclick=function(){ document.getElementById("walletPanel").classList.add("open"); };
 document.getElementById("walletClose").onclick=function(){ document.getElementById("walletPanel").classList.remove("open"); };
 document.getElementById("copyWallet").onclick=function(){ var txt=wallet.map(function(w){return w.label+": "+w.code;}).join("\n"); if(navigator.clipboard) navigator.clipboard.writeText(txt||"No coupons clipped yet"); wallet.forEach(function(w){ trackEvent("coupon_copy",{coupon_code:w.code,source:"wallet_copy_all",detail:"Copied from wallet: "+w.label}); }); showToast("Wallet codes copied"); };
-document.getElementById("downloadWallet").onclick=function(){ var txt="MY COUPON WALLET\n================\n\n"+(wallet.length?wallet.map(function(w){return w.label+"\nCode: "+w.code+"\n"+w.desc+"\n";}).join("\n"):"No coupons clipped yet."); downloadText(txt,"my-coupon-wallet.txt"); };
+document.getElementById("downloadWallet").onclick=function(){ var txt="MY COUPON WALLET\n================\nCodes below are SAMPLES — examples only, not valid at checkout.\n\n"+(wallet.length?wallet.map(function(w){return w.label+"\nCode: "+w.code+" (SAMPLE)\n"+w.desc+"\n";}).join("\n"):"No coupons clipped yet."); downloadText(txt,"my-coupon-wallet.txt"); };
 /* Analytics are internal only — no dashboard, stats, feed, or export
    controls are rendered for site visitors. Tracking stays in-memory
    for the operator and is not exposed in the page UI. */
