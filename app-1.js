@@ -642,7 +642,7 @@ function walletItemHTML(w){
     +(exp&&!w.used?'<span class="expired-flag">Expired</span>':"")
     +(w.used?'<span class="used-flag">Used</span>':"")
     +'<span style="color:var(--muted);font-size:13px;display:block;">'+esc(w.desc||w.title||"")+'</span>'
-    +'Code: <code>'+esc(w.code)+'</code>'
+    +'Code: <code>'+esc(w.code)+'</code> <span class="sample-badge">Sample Code</span>'
     +(typeof w.price==="number"?'<span style="font-size:13px;"> · You pay <b>'+money(w.price)+'</b>'+(typeof w.list==="number"?' <s style="color:var(--muted);">'+money(w.list)+'</s>':"")+'</span>':"")
     +(w.exp?'<span style="font-size:12.5px;color:var(--muted);display:block;">Ends '+esc(w.exp)+'</span>':"")
     +'</div>';
